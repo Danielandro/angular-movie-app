@@ -1,7 +1,13 @@
 <div class="movie-slider">
   <h2 class="movie-slider__title">{{ sliderTitle }}</h2>
-  <div class="movie-slider__movies">
+
+  <div class="movie-slider__movies"
+       *ngFor="let item of items">
     <img src="assets/images/default-movie-poster.png"
+         alt="{{ item.title }}"
+         class="poster">
+    <p>{{ item.title }}</p>
+    <!-- <img src="assets/images/default-movie-poster.png"
          alt="default poster poster"
          class="poster">
     <img src="assets/images/default-movie-poster.png"
@@ -15,9 +21,7 @@
          class="poster">
     <img src="assets/images/default-movie-poster.png"
          alt="default poster poster"
-         class="poster">
-    <img src="assets/images/default-movie-poster.png"
-         alt="default poster poster"
-         class="poster">
+         class="poster"> -->
+
   </div>
 </div>
