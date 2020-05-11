@@ -1,27 +1,21 @@
-<div class="movie-slider">
-  <h2 class="movie-slider__title">{{ sliderTitle }}</h2>
+<div class="slider">
+  <h2 class="slider__title">{{ sliderTitle }}</h2>
 
-  <div class="movie-slider__movies"
-       *ngFor="let item of items">
-    <img src="assets/images/default-movie-poster.png"
-         alt="{{ item.title }}"
-         class="poster">
-    <p>{{ item.title }}</p>
-    <!-- <img src="assets/images/default-movie-poster.png"
-         alt="default poster poster"
-         class="poster">
-    <img src="assets/images/default-movie-poster.png"
-         alt="default poster poster"
-         class="poster">
-    <img src="assets/images/default-movie-poster.png"
-         alt="default poster poster"
-         class="poster">
-    <img src="assets/images/default-movie-poster.png"
-         alt="default poster poster"
-         class="poster">
-    <img src="assets/images/default-movie-poster.png"
-         alt="default poster poster"
-         class="poster"> -->
-
+  <!-- AFTER ADDING CARD COMPONENT -->
+  <!-- <div *ngFor="let item of items"
+       class="slider__items">
+    <app-card [item]="item"></app-card>
+  </div> -->
+  <div class="slider__items">
+    <div *ngFor="let item of items"
+         class="slider__item">
+      <div class="item__image">
+        <img src="assets/images/default-movie-poster.png"
+             alt="{{ item.title }}"
+             class="image">
+      </div>
+      <div class="content">
+        <h2 class="item__title">{{ item.title }}</h2>
+      </div>
+    </div>
   </div>
-</div>

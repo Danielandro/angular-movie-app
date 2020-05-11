@@ -10,6 +10,6 @@
   </div>
 </nav>
 
-<app-slider *ngIf="trendingList"
+<app-slider *ngIf="trendingList$"
             [sliderTitle]="sliderTitle"
-            [items]="trendingList | async"></app-slider>
+            [items]="trendingList$ | async"></app-slider>

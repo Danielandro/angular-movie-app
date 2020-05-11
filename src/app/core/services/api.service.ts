@@ -5,12 +5,12 @@ import { map, tap } from "rxjs/operators";
 
 export interface Trending {
   page: number;
-  results: TrendingResponse[];
+  results: (Movie | TvShow)[];
   totalPages: number;
   totalResults: number;
 }
 
-export interface TrendingResponse {
+export interface Movie {
   id: number;
   video: boolean;
   voteCount: number;
@@ -24,6 +24,23 @@ export interface TrendingResponse {
   adult: boolean;
   overview: string;
   posterPath: string | null;
+  popularity: number;
+  mediaType: string;
+}
+
+export interface TvShow {
+  backdropPath: string;
+  firstAirDate: Date;
+  genreIDS: number[];
+  id: number;
+  name: string;
+  originCountry: string[];
+  originalLanguage: string;
+  originalName: string;
+  overview: string;
+  posterPath: string;
+  voteAverage: number;
+  voteCount: number;
   popularity: number;
   mediaType: string;
 }
@@ -64,6 +81,9 @@ export class ApiService {
   }
 
   public getTrending(): Observable<Trending> {
-    return this.http.get<Trending>(`${this.baseUrl}/trending/all/week`, this.httpOptions);
+    return this.http.get<Trending>(`${this.baseUrl}/trending/movie/week`, this.httpOptions)
+      .pipe(
+        tap(res => console.log("TRENDING: ", res.results))
+      );
   }
 }

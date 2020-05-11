@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService, TrendingResponse } from './core/services/api.service';
+import { ApiService, Movie, TvShow } from './core/services/api.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,12 +11,12 @@ import { map } from 'rxjs/operators';
 export class AppComponent implements OnInit {
   title = 'angular-movie-app';
   sliderTitle: string = "Trending Movies";
-  trendingList: Observable<TrendingResponse[]>;
+  trendingList$: Observable<(Movie | TvShow)[]>;
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.trendingList = this.api.getTrending()
+    this.trendingList$ = this.api.getTrending()
       .pipe(
         map(trending => trending.results)
       );

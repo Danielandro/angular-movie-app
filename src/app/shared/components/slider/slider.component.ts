@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
-import { TrendingResponse } from 'src/app/core/services/api.service';
+import { Movie } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-slider',
@@ -9,7 +9,7 @@ import { TrendingResponse } from 'src/app/core/services/api.service';
 })
 export class SliderComponent implements OnInit {
   @Input() sliderTitle: string;
-  @Input() items: TrendingResponse[];
+  @Input() items: Movie[];
   constructor() { }
 
   ngOnInit(): void {
