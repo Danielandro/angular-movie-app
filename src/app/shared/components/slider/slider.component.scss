@@ -8,7 +8,7 @@
     // overflow-x: auto;
     z-index: 2;
 
-    &:hover .poster {
+    &:hover .slider__item {
       transform: translateX(-15%);
     }
 
@@ -18,6 +18,7 @@
       flex-direction: column;
       position: relative;
       margin: 0 15px;
+      transition: all 0.25s ease-in;
 
       .item__image {
         display: block;
@@ -27,7 +28,7 @@
         flex-shrink: 0;
         // margin: 0 0.2em;
         // transform: translateX(-15%);
-        transition: all 0.3s ease-in;
+        // transition: all 0.3s ease-in;
         // z-index: 3;
         .image {
           width: auto;
@@ -36,7 +37,7 @@
           // flex-shrink: 0;
           // border-radius: 10px;
 
-          transition: all 0.3s ease-in;
+          // transition: all 0.3s ease-in;
           // z-index: 3;
         }
       }
@@ -56,7 +57,7 @@
       &:hover {
         transform: scale(1.3) !important;
 
-        & ~ .poster {
+        & ~ .slider__item {
           transform: translateX(15%);
         }
       }
