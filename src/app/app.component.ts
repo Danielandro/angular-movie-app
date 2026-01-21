@@ -2,11 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService, Movie, TvShow } from './core/services/api.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
+// import { SharedModule } from './shared/shared.module'; // Removed
+import { SliderComponent } from './shared/components/slider/slider.component'; // Added
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [CommonModule, SliderComponent] // Updated imports
 })
 export class AppComponent implements OnInit {
   title = 'angular-movie-app';

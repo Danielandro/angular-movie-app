@@ -1,12 +1,21 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, waitForAsync } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppComponent } from './app.component';
+import { ApiService } from './core/services/api.service';
+// import { SharedModule } from './shared/shared.module'; // Removed
+import { SliderComponent } from './shared/components/slider/slider.component'; // Added
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      imports: [
+        HttpClientTestingModule,
+        // SharedModule, // Removed
+        SliderComponent, // Added
+        AppComponent // Import AppComponent as it's standalone
       ],
+      // declarations: [AppComponent], // Removed as it's standalone
+      providers: [ApiService]
     }).compileComponents();
   }));
 
